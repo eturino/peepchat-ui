@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: ISDbViwiuF8IXQW3NYWmOYnQCDcraYgzqaRvwalEge6MvvITbYtkT1iW76KAaHrNjIN8g6vWYe/WmQvDjbgTzEdCGi8hrADWBL8CkyMF2hIMpGwtSKjcFoo4CgCmsuJZ/MeoE2oDYZBGV7JV8OG+lkfjMiGPxwQzBbdk4bzn/gPuAG+EPFgW9+4AI1nlpecdtu0SMKfigUtI6EFnwEKeM6nMQEuJwZJABBmYLVsy/Y+Ai6mKrEOTSfrRAR/3hbxEjkB5oML8uTCrz+xhqdLR1M4W8EgPvYEvoDavHd1tZUE7XH2lfzRUiHDTbWf3GezL6DA8gVQDvdKrgQF/JyOok+G/r6HCcqZr19kQlQYK3h3q/WFcwfIxX7yf5U/NAlnwMeKVnwihJzSWx5Yc/QOUESSaivFkhyzs3WHLAKBQsmBW00zw6X7PyiEkOcU1kjsW33Pz3dd5ciM2nw6bn1nDH2RkAc9cVlzSJqUD4QunZXgTDUpi52T8Jy0+JvLDufXeSG/qgJFK346QMpGEWX0UhGw9MkJ2EY37bWHE+YLgjoEVK0V1LhXVBVdP39+ojtVDXsh+XVEsg0DO1tlEENBLOCJWlm96ofMiTvPsMnWB4v9EHtLkRF4u2VobvWiynKDT7JxW4p9e+FTCRWjV6rXwC64Vp7XSuFxwzFTyqfRYrow=
+  app: pacific-tor-45153
+  on:
+    repo: eturino/peepchat-ui
